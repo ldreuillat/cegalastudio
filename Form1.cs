@@ -37,7 +37,6 @@ namespace CegalaStudio
             recordDataGridView.AllowUserToResizeColumns = false;
             recordDataGridView.AllowUserToResizeRows = false;
             recordDataGridView.ReadOnly = true;
-            triggerTextBox.ReadOnly = true;
         }
 
         private void recordDataGridView_SelectionChanged(object sender, EventArgs args)
@@ -101,8 +100,11 @@ namespace CegalaStudio
         private void displayTrigger(int index)
         {
             string triggerValue = this.recordsList[index].Declencheur;
-            triggerTextBox.Clear();
-            triggerTextBox.Text = triggerValue;
+
+            declencheurData.DocumentText = "0";
+            declencheurData.Document.OpenNew(true);
+            declencheurData.Document.Write(triggerValue);
+            declencheurData.Refresh();
         }
 
         private void stopButton_Click(object sender, EventArgs e)

@@ -33,12 +33,13 @@
             this.nextButton = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
-            this.triggerTextBox = new System.Windows.Forms.RichTextBox();
+            this.declencheurData = new System.Windows.Forms.WebBrowser();
             this.ArtisteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SketchDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MusiqueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DureeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recordBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.declencheurLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.recordDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recordBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -56,14 +57,15 @@
             this.recordDataGridView.DataSource = this.recordBindingSource;
             this.recordDataGridView.Location = new System.Drawing.Point(12, 12);
             this.recordDataGridView.Name = "recordDataGridView";
-            this.recordDataGridView.Size = new System.Drawing.Size(535, 318);
+            this.recordDataGridView.Size = new System.Drawing.Size(535, 404);
             this.recordDataGridView.TabIndex = 1;
             // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(364, 336);
+            this.nextButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nextButton.Location = new System.Drawing.Point(364, 422);
             this.nextButton.Name = "nextButton";
-            this.nextButton.Size = new System.Drawing.Size(183, 66);
+            this.nextButton.Size = new System.Drawing.Size(183, 45);
             this.nextButton.TabIndex = 2;
             this.nextButton.Text = "Next";
             this.nextButton.UseVisualStyleBackColor = true;
@@ -71,9 +73,10 @@
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(12, 336);
+            this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startButton.Location = new System.Drawing.Point(12, 422);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(170, 66);
+            this.startButton.Size = new System.Drawing.Size(170, 45);
             this.startButton.TabIndex = 3;
             this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = true;
@@ -81,21 +84,22 @@
             // 
             // stopButton
             // 
-            this.stopButton.Location = new System.Drawing.Point(188, 336);
+            this.stopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stopButton.Location = new System.Drawing.Point(188, 422);
             this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(170, 66);
+            this.stopButton.Size = new System.Drawing.Size(170, 45);
             this.stopButton.TabIndex = 4;
             this.stopButton.Text = "Stop";
             this.stopButton.UseVisualStyleBackColor = true;
             this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
             // 
-            // triggerTextBox
+            // declencheurData
             // 
-            this.triggerTextBox.Location = new System.Drawing.Point(588, 31);
-            this.triggerTextBox.Name = "triggerTextBox";
-            this.triggerTextBox.Size = new System.Drawing.Size(341, 298);
-            this.triggerTextBox.TabIndex = 5;
-            this.triggerTextBox.Text = "";
+            this.declencheurData.Location = new System.Drawing.Point(562, 29);
+            this.declencheurData.MinimumSize = new System.Drawing.Size(20, 20);
+            this.declencheurData.Name = "declencheurData";
+            this.declencheurData.Size = new System.Drawing.Size(458, 387);
+            this.declencheurData.TabIndex = 6;
             // 
             // ArtisteDataGridViewTextBoxColumn
             // 
@@ -129,12 +133,23 @@
             // 
             this.recordBindingSource.DataSource = typeof(CegalaStudio.Model.Record);
             // 
+            // declencheurLabel
+            // 
+            this.declencheurLabel.AutoSize = true;
+            this.declencheurLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.declencheurLabel.Location = new System.Drawing.Point(559, 9);
+            this.declencheurLabel.Name = "declencheurLabel";
+            this.declencheurLabel.Size = new System.Drawing.Size(79, 13);
+            this.declencheurLabel.TabIndex = 7;
+            this.declencheurLabel.Text = "Déclencheur";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(945, 450);
-            this.Controls.Add(this.triggerTextBox);
+            this.ClientSize = new System.Drawing.Size(1038, 479);
+            this.Controls.Add(this.declencheurLabel);
+            this.Controls.Add(this.declencheurData);
             this.Controls.Add(this.stopButton);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.nextButton);
@@ -144,6 +159,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.recordDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recordBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -157,7 +173,8 @@
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Button stopButton;
-        private System.Windows.Forms.RichTextBox triggerTextBox;
+        private System.Windows.Forms.WebBrowser declencheurData;
+        private System.Windows.Forms.Label declencheurLabel;
     }
 }
 
