@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CegalaStudio.Model;
 using System.IO;
+using WMPLib;
 
 namespace CegalaStudio
 {
@@ -23,17 +24,25 @@ namespace CegalaStudio
 
         private void loadConduite_Click(object sender, EventArgs e)
         {
-            string path = conduitePath.Text + "\\" + conduitesList.SelectedItem.ToString() + "\\conduite.json";
+            string rootPath = conduitePath.Text + "\\" + conduitesList.SelectedItem.ToString();
 
             try
             {
-                List<Record> records = JsonConvert.DeserializeObject<List<Record>>(File.ReadAllText(path));
-                Form1 studioForm = new Form1(records);
+                List<Record> records = JsonConvert.DeserializeObject<List<Record>>(File.ReadAllText(rootPath + "\\conduite.json"));
+
+                foreach (Record record in records)
+                {
+                    string musicPath = rootPath + "\\" + record.Musique;
+                    WindowsMediaPlayer wmp = new WindowsMediaPlayer();
+                    IWMPMedia mediaInformation = wmp.newMedia(musicPath);
+                    record.Duree = mediaInformation.duration;
+                }
+                Form1 studioForm = new Form1(rootPath, records);
                 studioForm.ShowDialog();
             }
             catch
             {
-                MessageBox.Show("Pas de fichier de conduite valide " + path, "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Pas de fichier de conduite valide " + rootPath, "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

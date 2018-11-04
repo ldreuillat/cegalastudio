@@ -34,12 +34,12 @@
             this.startButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
             this.declencheurData = new System.Windows.Forms.WebBrowser();
+            this.declencheurLabel = new System.Windows.Forms.Label();
             this.ArtisteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SketchDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MusiqueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DureeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recordBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.declencheurLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.recordDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recordBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -57,13 +57,13 @@
             this.recordDataGridView.DataSource = this.recordBindingSource;
             this.recordDataGridView.Location = new System.Drawing.Point(12, 12);
             this.recordDataGridView.Name = "recordDataGridView";
-            this.recordDataGridView.Size = new System.Drawing.Size(535, 404);
+            this.recordDataGridView.Size = new System.Drawing.Size(535, 610);
             this.recordDataGridView.TabIndex = 1;
             // 
             // nextButton
             // 
             this.nextButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nextButton.Location = new System.Drawing.Point(364, 422);
+            this.nextButton.Location = new System.Drawing.Point(364, 628);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(183, 45);
             this.nextButton.TabIndex = 2;
@@ -74,7 +74,7 @@
             // startButton
             // 
             this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startButton.Location = new System.Drawing.Point(12, 422);
+            this.startButton.Location = new System.Drawing.Point(12, 628);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(170, 45);
             this.startButton.TabIndex = 3;
@@ -85,7 +85,7 @@
             // stopButton
             // 
             this.stopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stopButton.Location = new System.Drawing.Point(188, 422);
+            this.stopButton.Location = new System.Drawing.Point(188, 628);
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(170, 45);
             this.stopButton.TabIndex = 4;
@@ -98,8 +98,18 @@
             this.declencheurData.Location = new System.Drawing.Point(562, 29);
             this.declencheurData.MinimumSize = new System.Drawing.Size(20, 20);
             this.declencheurData.Name = "declencheurData";
-            this.declencheurData.Size = new System.Drawing.Size(458, 387);
+            this.declencheurData.Size = new System.Drawing.Size(458, 593);
             this.declencheurData.TabIndex = 6;
+            // 
+            // declencheurLabel
+            // 
+            this.declencheurLabel.AutoSize = true;
+            this.declencheurLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.declencheurLabel.Location = new System.Drawing.Point(559, 9);
+            this.declencheurLabel.Name = "declencheurLabel";
+            this.declencheurLabel.Size = new System.Drawing.Size(79, 13);
+            this.declencheurLabel.TabIndex = 7;
+            this.declencheurLabel.Text = "Déclencheur";
             // 
             // ArtisteDataGridViewTextBoxColumn
             // 
@@ -133,21 +143,11 @@
             // 
             this.recordBindingSource.DataSource = typeof(CegalaStudio.Model.Record);
             // 
-            // declencheurLabel
-            // 
-            this.declencheurLabel.AutoSize = true;
-            this.declencheurLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.declencheurLabel.Location = new System.Drawing.Point(559, 9);
-            this.declencheurLabel.Name = "declencheurLabel";
-            this.declencheurLabel.Size = new System.Drawing.Size(79, 13);
-            this.declencheurLabel.TabIndex = 7;
-            this.declencheurLabel.Text = "Déclencheur";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1038, 479);
+            this.ClientSize = new System.Drawing.Size(1038, 685);
             this.Controls.Add(this.declencheurLabel);
             this.Controls.Add(this.declencheurData);
             this.Controls.Add(this.stopButton);
@@ -155,7 +155,7 @@
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.recordDataGridView);
             this.Name = "Form1";
-            this.Text = "Studio";
+            this.Text = "CéGaLa Studio";
             ((System.ComponentModel.ISupportInitialize)(this.recordDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recordBindingSource)).EndInit();
             this.ResumeLayout(false);

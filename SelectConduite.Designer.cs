@@ -108,7 +108,7 @@
             this.Controls.Add(this.conduitePath);
             this.Controls.Add(this.loadConduite);
             this.Name = "SelectConduite";
-            this.Text = "SelectConduite";
+            this.Text = "Sélection de conduite";
             this.ResumeLayout(false);
             this.PerformLayout();
 

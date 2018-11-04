@@ -11,7 +11,7 @@ namespace CegalaStudio.Model
         public string Artiste { get; set; }
         public string Sketch { get; set; }
         public string Musique { get; set; }
-        public int Duree { get; set;}
+        public double Duree { get; set;}
         public string Declencheur { get; set; }
     }
 }

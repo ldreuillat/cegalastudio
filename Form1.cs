@@ -14,13 +14,15 @@ namespace CegalaStudio
     public partial class Form1 : Form
     {
         private WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
-        public List<Record> recordsList;
+        private List<Record> recordsList;
+        private string rootPath;
 
-        public Form1(List<Record> records)
+        public Form1(string rootPath, List<Record> records)
         {
             InitializeComponent();           
             stopButton.Enabled = false;
             nextButton.Enabled = false;
+            this.rootPath = rootPath;
             this.recordsList = records;
             initializeRecordDataGridView();
             initializePlayer();
@@ -54,7 +56,7 @@ namespace CegalaStudio
         private void playMusic(string path)
         {
             nextButton.Enabled = false;
-            wplayer.URL = path;
+            wplayer.URL = rootPath + "\\" + path;
             //wplayer.controls.play();
         }
 
@@ -69,6 +71,7 @@ namespace CegalaStudio
                 {
                     recordDataGridView.Rows[curIndex + 1].Selected = true;
                     nextButton.Enabled = true;
+                    nextButton.Focus();
                 }
                 else
                 {
