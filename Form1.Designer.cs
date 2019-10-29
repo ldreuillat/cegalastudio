@@ -30,16 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.recordDataGridView = new System.Windows.Forms.DataGridView();
-            this.nextButton = new System.Windows.Forms.Button();
-            this.startButton = new System.Windows.Forms.Button();
-            this.stopButton = new System.Windows.Forms.Button();
-            this.declencheurData = new System.Windows.Forms.WebBrowser();
-            this.declencheurLabel = new System.Windows.Forms.Label();
             this.ArtisteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SketchDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MusiqueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DureeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recordBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nextButton = new System.Windows.Forms.Button();
+            this.startButton = new System.Windows.Forms.Button();
+            this.stopButton = new System.Windows.Forms.Button();
+            this.declencheurData = new System.Windows.Forms.WebBrowser();
+            this.declencheurLabel = new System.Windows.Forms.Label();
+            this.skipButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.recordDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recordBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +60,38 @@
             this.recordDataGridView.Name = "recordDataGridView";
             this.recordDataGridView.Size = new System.Drawing.Size(535, 610);
             this.recordDataGridView.TabIndex = 1;
+            // 
+            // ArtisteDataGridViewTextBoxColumn
+            // 
+            this.ArtisteDataGridViewTextBoxColumn.DataPropertyName = "Artiste";
+            this.ArtisteDataGridViewTextBoxColumn.HeaderText = "Artiste";
+            this.ArtisteDataGridViewTextBoxColumn.Name = "ArtisteDataGridViewTextBoxColumn";
+            this.ArtisteDataGridViewTextBoxColumn.Width = 61;
+            // 
+            // SketchDataGridViewTextBoxColumn
+            // 
+            this.SketchDataGridViewTextBoxColumn.DataPropertyName = "Sketch";
+            this.SketchDataGridViewTextBoxColumn.HeaderText = "Sketch";
+            this.SketchDataGridViewTextBoxColumn.Name = "SketchDataGridViewTextBoxColumn";
+            this.SketchDataGridViewTextBoxColumn.Width = 66;
+            // 
+            // MusiqueDataGridViewTextBoxColumn
+            // 
+            this.MusiqueDataGridViewTextBoxColumn.DataPropertyName = "Musique";
+            this.MusiqueDataGridViewTextBoxColumn.HeaderText = "Musique";
+            this.MusiqueDataGridViewTextBoxColumn.Name = "MusiqueDataGridViewTextBoxColumn";
+            this.MusiqueDataGridViewTextBoxColumn.Width = 72;
+            // 
+            // DureeDataGridViewTextBoxColumn
+            // 
+            this.DureeDataGridViewTextBoxColumn.DataPropertyName = "Duree";
+            this.DureeDataGridViewTextBoxColumn.HeaderText = "Duree";
+            this.DureeDataGridViewTextBoxColumn.Name = "DureeDataGridViewTextBoxColumn";
+            this.DureeDataGridViewTextBoxColumn.Width = 61;
+            // 
+            // recordBindingSource
+            // 
+            this.recordBindingSource.DataSource = typeof(CegalaStudio.Model.Record);
             // 
             // nextButton
             // 
@@ -111,43 +144,23 @@
             this.declencheurLabel.TabIndex = 7;
             this.declencheurLabel.Text = "Déclencheur";
             // 
-            // ArtisteDataGridViewTextBoxColumn
+            // skipButton
             // 
-            this.ArtisteDataGridViewTextBoxColumn.DataPropertyName = "Artiste";
-            this.ArtisteDataGridViewTextBoxColumn.HeaderText = "Artiste";
-            this.ArtisteDataGridViewTextBoxColumn.Name = "ArtisteDataGridViewTextBoxColumn";
-            this.ArtisteDataGridViewTextBoxColumn.Width = 61;
-            // 
-            // SketchDataGridViewTextBoxColumn
-            // 
-            this.SketchDataGridViewTextBoxColumn.DataPropertyName = "Sketch";
-            this.SketchDataGridViewTextBoxColumn.HeaderText = "Sketch";
-            this.SketchDataGridViewTextBoxColumn.Name = "SketchDataGridViewTextBoxColumn";
-            this.SketchDataGridViewTextBoxColumn.Width = 66;
-            // 
-            // MusiqueDataGridViewTextBoxColumn
-            // 
-            this.MusiqueDataGridViewTextBoxColumn.DataPropertyName = "Musique";
-            this.MusiqueDataGridViewTextBoxColumn.HeaderText = "Musique";
-            this.MusiqueDataGridViewTextBoxColumn.Name = "MusiqueDataGridViewTextBoxColumn";
-            this.MusiqueDataGridViewTextBoxColumn.Width = 72;
-            // 
-            // DureeDataGridViewTextBoxColumn
-            // 
-            this.DureeDataGridViewTextBoxColumn.DataPropertyName = "Duree";
-            this.DureeDataGridViewTextBoxColumn.HeaderText = "Duree";
-            this.DureeDataGridViewTextBoxColumn.Name = "DureeDataGridViewTextBoxColumn";
-            this.DureeDataGridViewTextBoxColumn.Width = 61;
-            // 
-            // recordBindingSource
-            // 
-            this.recordBindingSource.DataSource = typeof(CegalaStudio.Model.Record);
+            this.skipButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skipButton.Location = new System.Drawing.Point(553, 628);
+            this.skipButton.Name = "skipButton";
+            this.skipButton.Size = new System.Drawing.Size(183, 45);
+            this.skipButton.TabIndex = 8;
+            this.skipButton.Text = "Skip";
+            this.skipButton.UseVisualStyleBackColor = true;
+            this.skipButton.Click += new System.EventHandler(this.skipButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1038, 685);
+            this.Controls.Add(this.skipButton);
             this.Controls.Add(this.declencheurLabel);
             this.Controls.Add(this.declencheurData);
             this.Controls.Add(this.stopButton);
@@ -175,6 +188,7 @@
         private System.Windows.Forms.Button stopButton;
         private System.Windows.Forms.WebBrowser declencheurData;
         private System.Windows.Forms.Label declencheurLabel;
+        private System.Windows.Forms.Button skipButton;
     }
 }
 

@@ -22,6 +22,7 @@ namespace CegalaStudio
             InitializeComponent();           
             stopButton.Enabled = false;
             nextButton.Enabled = false;
+            skipButton.Enabled = false;
             this.rootPath = rootPath;
             this.recordsList = records;
             initializeRecordDataGridView();
@@ -70,12 +71,14 @@ namespace CegalaStudio
                 if (curIndex + 1 < recordDataGridView.RowCount)
                 {
                     recordDataGridView.Rows[curIndex + 1].Selected = true;
+                    skipButton.Enabled = false;
                     nextButton.Enabled = true;
                     nextButton.Focus();
                 }
                 else
                 {
                     startButton.Enabled = true;
+                    skipButton.Enabled = false;
                     stopButton.Enabled = false;
                     nextButton.Enabled = false;
                     recordDataGridView.Rows[0].Selected = true;
@@ -85,6 +88,7 @@ namespace CegalaStudio
 
         private void nextButton_Click(object sender, EventArgs e)
         {
+            skipButton.Enabled = true;
             string path = (string)recordDataGridView.SelectedRows[0].Cells[2].Value;
             playMusic(path);
         }
@@ -95,6 +99,7 @@ namespace CegalaStudio
             startButton.Enabled = false;
             stopButton.Enabled = true;
             nextButton.Enabled = true;
+            skipButton.Enabled = false;
             recordDataGridView.Enabled = false;
             recordDataGridView.Rows[0].Selected = true;
             displayTrigger(0);
@@ -116,7 +121,30 @@ namespace CegalaStudio
             startButton.Enabled = true;
             stopButton.Enabled = false;
             nextButton.Enabled = false;
+            skipButton.Enabled = false;
             recordDataGridView.Rows[0].Selected = true;
+        }
+
+        private void skipButton_Click(object sender, EventArgs e)
+        {
+            wplayer.close();
+            int curIndex = recordDataGridView.SelectedRows[0].Index;
+
+            if (curIndex + 1 < recordDataGridView.RowCount)
+            {
+                recordDataGridView.Rows[curIndex + 1].Selected = true;
+                skipButton.Enabled = false;
+                nextButton.Enabled = true;
+                nextButton.Focus();
+            }
+            else
+            {
+                startButton.Enabled = true;
+                stopButton.Enabled = false;
+                nextButton.Enabled = false;
+                skipButton.Enabled = false;
+                recordDataGridView.Rows[0].Selected = true;
+            }
         }
     }
 }
