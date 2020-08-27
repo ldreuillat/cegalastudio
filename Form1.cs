@@ -89,6 +89,7 @@ namespace CegalaStudio
         private void nextButton_Click(object sender, EventArgs e)
         {
             skipButton.Enabled = true;
+            skipButton.Focus();
             string path = (string)recordDataGridView.SelectedRows[0].Cells[2].Value;
             playMusic(path);
         }
@@ -99,6 +100,7 @@ namespace CegalaStudio
             startButton.Enabled = false;
             stopButton.Enabled = true;
             nextButton.Enabled = true;
+            nextButton.Focus();
             skipButton.Enabled = false;
             recordDataGridView.Enabled = false;
             recordDataGridView.Rows[0].Selected = true;
@@ -145,6 +147,25 @@ namespace CegalaStudio
                 skipButton.Enabled = false;
                 recordDataGridView.Rows[0].Selected = true;
             }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Space)
+            {
+                if (skipButton.Enabled)
+                {
+                    skipButton.PerformClick();
+                    return true;
+                }
+                else if (nextButton.Enabled)
+                {
+                    nextButton.PerformClick();
+                    return true;
+                }
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData); ;
         }
     }
 }
